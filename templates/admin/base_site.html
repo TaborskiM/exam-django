@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('My Admin') }}{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {% if theme.css_url %}
+        <link id="admin-theme" rel="stylesheet" type="text/css" href="{{ theme.css_url }}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}">
+    {% endif %}
+    <script src="{% static 'admin/themes/theme-switcher.js' %}" defer></script>
+{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+    <a href="{% url 'admin:index' %}">{{ site_header|default:_('ADMIN') }}</a>
+</div>
+<button id="theme-switch-button" data-theme-id="2">Changer de Thème</button>
+{% endblock %}
+
+{% block footer %}
+<div class="main-footer">
+    <div class="float-right d-none d-sm-inline">
+        <img src="{% static 'admin/images/Logo-SESAME-png.png' %}" alt="Logo" class="footer-logo" style="height: 35px; width: auto;">
+    </div>
+    <strong>Copyright © 2025. </strong>
+    Tous droits réservés.
+</div>
+{% endblock %}

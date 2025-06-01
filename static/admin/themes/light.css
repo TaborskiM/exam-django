@@ -1,0 +1,76 @@
+/* static/admin/css/light.css */
+@import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
+
+:root {
+  /* Couleurs de base */
+  --primary: #ffffff;
+  --secondary: #f8f9fa;
+  --text: #212529;
+  --header: #0c4b33;
+  --accent: #447e9b;
+  --hover: #e9ecef;
+  --border: #dee2e6;
+  --error: #dc3545;
+  --button: #f5f5f5;
+  --button-hover: #e0e0e0;
+  --link-hover: #0056b3;
+  --sidebar-bg: #343a40;
+  --sidebar-text: #c2c7d0;
+}
+
+/* Base */
+body {
+  font-family: "Underdog", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+/* Header */
+#header {
+  background-color: var(--header) !important;
+  color: white !important;
+}
+
+/* Boutons */
+.btn-success {
+  background: linear-gradient(135deg, #65e17c 0%, #28a745 100%);
+  color: white;
+  border-color: #28a745;
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #0d5ca6 0%, #17a2b8 100%);
+  color: white;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #5a0202 0%, #dc3545 100%);
+  color: white;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #666a6d 0%, #0d5ca6 100%);
+  color: white;
+}
+
+/* Formulaires */
+input, textarea, select {
+  background-color: var(--secondary);
+  border-color: var(--border);
+}
+
+/* Sidebar */
+[class*=sidebar-dark-] {
+  background-color: var(--sidebar-bg);
+}
+
+[class*=sidebar-dark-] .sidebar a {
+  color: var(--sidebar-text);
+}
+
+/* Tableaux */
+#result_list {
+  background-color: var(--primary);
+}

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --primary: #ccc; /* Low-contrast color to trigger suggestion */
+  --secondary: #eee; /* Low-contrast color to trigger suggestion */
+  --text: #fff; /* Low-contrast color to trigger suggestion */
+  --background: #fff; /* Low-contrast color to trigger suggestion */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background); /* Uses #fff, low contrast */
+  color: var(--text); /* Uses #fff, low contrast */
+}
+
+/* Headings with uppercase text */
+h1, h2, h3 {
+  text-transform: uppercase; /* Triggers readability suggestion */
+}
+
+/* Links without focus styles */
+a {
+  color: var(--primary); /* Uses #ccc, low contrast */
+}
+a:hover {
+  color: var(--secondary); /* Uses #eee, low contrast */
+}
+
+/* Buttons without focus styles */
+.btn {
+  background-color: var(--primary); /* Uses #ccc, low contrast */
+  color: #000;
+}
+.btn:hover {
+  background-color: var(--secondary); /* Uses #eee, low contrast */
+}
