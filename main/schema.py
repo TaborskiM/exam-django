@@ -25,6 +25,9 @@ class SwitchThemeMutation(graphene.Mutation):
     suggestions = graphene.String()
 
     def mutate(self, info, theme_id):
+        user = info.context.user
+        if not user.is_authenticated or not user.is_superuser:
+            raise Exception("Vous devez être connecté en tant qu'administrateur pour changer de thème.")
         try:
             # Désactiver tous les thèmes
             AdminTheme.objects.all().update(is_active=False)

@@ -147,6 +147,22 @@ REST_FRAMEWORK = {
 GRAPHENE = {
     'SCHEMA': 'main.schema.schema'
 }
+PASSWORD_HASHERS = [
+    'main.hashers.CustomArgon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',  
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    
+]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication', 
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 # Configuration de Celery
 CELERY_BROKER_URL = 'redis://localhost:6379/0'

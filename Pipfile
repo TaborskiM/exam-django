@@ -15,6 +15,7 @@ requests = "*"
 django-jazzmin = "*"
 graphene-file-upload = "*"
 django-celery-beat = "*"
+argon2-cffi = "*"
 
 [dev-packages]
 

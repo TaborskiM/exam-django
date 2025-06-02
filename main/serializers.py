@@ -4,5 +4,6 @@ from .models import AdminTheme
 class AdminThemeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdminTheme
-        fields = ['id', 'name', 'css_url', 'js_url', 'is_active']
+        fields = '__all__'
+        read_only_fields = ['suggestions', 'is_active']
         
