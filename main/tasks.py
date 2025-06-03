@@ -41,6 +41,37 @@ def compile_scss(self, input_path=None, output_path=None):
             'output': output_path
         }
 
+@shared_task
+def switch_to_next_theme():
+    """
+    Switch to the next available theme in rotation.
+    """
+    themes = list(AdminTheme.objects.all().order_by('id'))
+
+    if not themes:
+        return "No themes available."
+
+    # Find current theme
+    current = next((t for t in themes if t.is_active), None)
+
+    # Determine next index
+    if current:
+        current_index = themes.index(current)
+        next_index = (current_index + 1) % len(themes)
+    else:
+        next_index = 0
+
+    # Switch themes
+    for t in themes:
+        t.is_active = False
+        t.save()
+
+    next_theme = themes[next_index]
+    next_theme.is_active = True
+    next_theme.save()
+
+    return f"Switched to theme: {next_theme.name}"
+
 @shared_task(name="themes.tasks.analyze_theme_accessibility")
 def analyze_theme_accessibility(theme_id):
     try:
