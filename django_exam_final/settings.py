@@ -46,11 +46,13 @@ INSTALLED_APPS += [
     'rest_framework',
     'graphene_django',
     'django_celery_beat',
+    'corsheaders',
 ]
 
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -143,6 +145,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+]
 
 GRAPHENE = {
     'SCHEMA': 'main.schema.schema'
@@ -158,6 +164,7 @@ PASSWORD_HASHERS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication', 
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',

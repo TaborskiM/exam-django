@@ -16,6 +16,8 @@ django-jazzmin = "*"
 graphene-file-upload = "*"
 django-celery-beat = "*"
 argon2-cffi = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
